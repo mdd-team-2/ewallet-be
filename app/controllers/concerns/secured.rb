@@ -5,7 +5,11 @@ module Secured
   def authenticate_client!
     begin
       obj = auth_token
-      @current_user = User.find_by_id(obj.id)
+      puts "-----------aca decodifico--------"
+      puts obj
+      puts obj["id"]
+      puts obj.id
+      @current_user = User.find_by_id(obj["id"])
       unless @current_user and @current_user.role.id == 1
         raise JWT::VerificationError
       end

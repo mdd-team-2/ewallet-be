@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   post 'login', to: "authentication#login"
   #SignUp
   post 'signup', to: "users#signup"
+  #test
+  post 'test', to: "users#test"
 
 end
