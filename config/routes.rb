@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   post 'login', to: "authentication#login"
   #SignUp
   post 'signup', to: "users#signup"
-  #test
-  post 'test', to: "users#test"
+  #consult-wallet
+  post 'consult-wallet', to: "users#consult_wallet"
+  #transfer
+  post 'user/transfer', to: "mddtransactions#transfer"
 
 end

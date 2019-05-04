@@ -24,6 +24,10 @@ default: &default
 development:
   <<: *default
   database: ewallet_development
+  host: localhost
+  port: 5433
+  username: mdd
+  password: MDD2019implementationreference
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

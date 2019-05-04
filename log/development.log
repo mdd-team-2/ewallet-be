@@ -1,0 +1,1186 @@
+Started POST "/login" for ::1 at 2019-05-04 17:30:20 -0500
+  
+PG::ConnectionBad (fe_sendauth: no password supplied
+):
+  
+pg (1.1.4) lib/pg.rb:56:in `initialize'
+pg (1.1.4) lib/pg.rb:56:in `new'
+pg (1.1.4) lib/pg.rb:56:in `connect'
+activerecord (5.2.3) lib/active_record/connection_adapters/postgresql_adapter.rb:692:in `connect'
+activerecord (5.2.3) lib/active_record/connection_adapters/postgresql_adapter.rb:223:in `initialize'
+activerecord (5.2.3) lib/active_record/connection_adapters/postgresql_adapter.rb:48:in `new'
+activerecord (5.2.3) lib/active_record/connection_adapters/postgresql_adapter.rb:48:in `postgresql_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:811:in `new_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:855:in `checkout_new_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:834:in `try_to_checkout_new_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:795:in `acquire_connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:523:in `checkout'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:382:in `connection'
+activerecord (5.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1014:in `retrieve_connection'
+activerecord (5.2.3) lib/active_record/connection_handling.rb:118:in `retrieve_connection'
+activerecord (5.2.3) lib/active_record/connection_handling.rb:90:in `connection'
+activerecord (5.2.3) lib/active_record/migration.rb:554:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (372.7ms)[0m  [1m[35mCREATE DATABASE "ewallet_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3210277058500076985)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRoles (20190504163215)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190504163215_create_roles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504163215"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190504163706)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "lastname" character varying, "email" character varying, "password_digest" character varying, "role_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+)[0m
+  ↳ db/migrate/20190504163706_create_users.rb:3
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_role_id" ON "users"  ("role_id")[0m
+  ↳ db/migrate/20190504163706_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504163706"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateServices (20190504211515)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "services" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190504211515_create_services.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504211515"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTransactionTypes (20190504211517)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "transaction_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190504211517_create_transaction_types.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504211517"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateWallets (20190504211744)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "wallets" ("id" bigserial primary key, "activation_date" timestamp, "last_activity_date" timestamp, "maximum_value" float, "current_value" float, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_732f6628c4"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20190504211744_create_wallets.rb:3
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE  INDEX  "index_wallets_on_user_id" ON "wallets"  ("user_id")[0m
+  ↳ db/migrate/20190504211744_create_wallets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504211744"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTransactions (20190504212116)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "mddtransactions" ("id" bigserial primary key, "target_id" integer, "wallet_id" bigint, "transaction_type_id" bigint, "amount" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5514ad7c97"
+FOREIGN KEY ("wallet_id")
+  REFERENCES "wallets" ("id")
+, CONSTRAINT "fk_rails_5abe3e8a14"
+FOREIGN KEY ("transaction_type_id")
+  REFERENCES "transaction_types" ("id")
+)[0m
+  ↳ db/migrate/20190504212116_create_transactions.rb:3
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_mddtransactions_on_wallet_id" ON "mddtransactions"  ("wallet_id")[0m
+  ↳ db/migrate/20190504212116_create_transactions.rb:3
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_mddtransactions_on_transaction_type_id" ON "mddtransactions"  ("transaction_type_id")[0m
+  ↳ db/migrate/20190504212116_create_transactions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504212116"]]
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreatePayments (20190504212201)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "payments" ("id" bigserial primary key, "service_id" bigint, "mddtransaction_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1b524778d4"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+, CONSTRAINT "fk_rails_af8164de79"
+FOREIGN KEY ("mddtransaction_id")
+  REFERENCES "mddtransactions" ("id")
+)[0m
+  ↳ db/migrate/20190504212201_create_payments.rb:3
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_payments_on_service_id" ON "payments"  ("service_id")[0m
+  ↳ db/migrate/20190504212201_create_payments.rb:3
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_payments_on_mddtransaction_id" ON "payments"  ("mddtransaction_id")[0m
+  ↳ db/migrate/20190504212201_create_payments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504212201"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-04 22:32:08.542212"], ["updated_at", "2019-05-04 22:32:08.542212"]]
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(3210277058500076985)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/login" for ::1 at 2019-05-04 17:32:13 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/trum/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"user"=>{"email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+Completed 401 Unauthorized in 15ms (Views: 0.3ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/signup" for ::1 at 2019-05-04 17:32:34 -0500
+Processing by UsersController#signup as */*
+  Parameters: {"user"=>{"name"=>"Luis", "lastname"=>"Gil", "email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 6.1ms)
+
+
+  
+I18n::InvalidLocaleData (can not load translations from /home/trum/.rvm/gems/ruby-2.5.1/gems/activesupport-5.2.3/lib/active_support/locale/en.yml: #<NameError: uninitialized constant Bootsnap::CompileCache::ISeq>):
+  
+app/controllers/users_controller.rb:17:in `block in signup'
+app/controllers/users_controller.rb:16:in `signup'
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (1.7ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Client"], ["created_at", "2019-05-04 22:33:53.744881"], ["updated_at", "2019-05-04 22:33:53.744881"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/signup" for ::1 at 2019-05-04 17:33:58 -0500
+Processing by UsersController#signup as */*
+  Parameters: {"user"=>{"name"=>"Luis", "lastname"=>"Gil", "email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "lastname", "email", "password_digest", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Luis"], ["lastname", "Gil"], ["email", "luegilca@unal.edu.co"], ["password_digest", "$2a$10$mb3m0Ws3RoH0.hDPcNC5iujQqasMLHayn2W06xl4mLkDhZarqwCpG"], ["role_id", 1], ["created_at", "2019-05-04 22:33:58.335639"], ["updated_at", "2019-05-04 22:33:58.335639"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:16
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 6.9ms)
+
+
+  
+NoMethodError (undefined method `user=' for #<Wallet:0x00005579c887a5e0>
+Did you mean?  user_id=):
+  
+app/controllers/users_controller.rb:23:in `block in signup'
+app/controllers/users_controller.rb:16:in `signup'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/signup" for ::1 at 2019-05-04 17:34:26 -0500
+Processing by UsersController#signup as */*
+  Parameters: {"user"=>{"name"=>"Luis", "lastname"=>"Gil", "email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "lastname", "email", "password_digest", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Luis"], ["lastname", "Gil"], ["email", "luegilca@unal.edu.co"], ["password_digest", "$2a$10$T5BfBdKCzSafScraELqPSeGFt/OToIB4LJg.jFfjr8PEACBne1VXS"], ["role_id", 1], ["created_at", "2019-05-04 22:34:26.971200"], ["updated_at", "2019-05-04 22:34:26.971200"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mWallet Create (1.5ms)[0m  [1m[32mINSERT INTO "wallets" ("activation_date", "last_activity_date", "maximum_value", "current_value", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["activation_date", "2019-05-04 00:00:00"], ["last_activity_date", "2019-05-04 00:00:00"], ["maximum_value", 10000000.0], ["current_value", 1000.0], ["user_id", 2], ["created_at", "2019-05-04 22:34:26.982959"], ["updated_at", "2019-05-04 22:34:26.982959"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16
+Completed 201 Created in 105ms (Views: 0.4ms | ActiveRecord: 14.1ms)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mWallet Load (1.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/consult.wallet/" for ::1 at 2019-05-04 17:40:37 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/trum/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [POST] "/consult.wallet"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:40:45 -0500
+  
+SyntaxError (/home/trum/Documents/Maestria/1semestre/ewallet-be/app/controllers/users_controller.rb:90: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/users_controller.rb:90: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:41:04 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>1}, "user"=>{}}
+Filter chain halted as :authenticate_shop_keeper! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/signup" for ::1 at 2019-05-04 17:41:32 -0500
+Processing by UsersController#signup as */*
+  Parameters: {"user"=>{"name"=>"Camilo", "lastname"=>"Dajer Admin", "email"=>"cadajerp@unal.edu.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "lastname", "email", "password_digest", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Camilo"], ["lastname", "Dajer Admin"], ["email", "cadajerp@unal.edu.co"], ["password_digest", "$2a$10$pAPmJ2l/cFpYnccPKHbZ6.KdiSHoPyHM42PP3cGUhN7CearcoGZZ6"], ["role_id", 1], ["created_at", "2019-05-04 22:41:32.693441"], ["updated_at", "2019-05-04 22:41:32.693441"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mWallet Create (1.9ms)[0m  [1m[32mINSERT INTO "wallets" ("activation_date", "last_activity_date", "maximum_value", "current_value", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["activation_date", "2019-05-04 00:00:00"], ["last_activity_date", "2019-05-04 00:00:00"], ["maximum_value", 10000000.0], ["current_value", 1000.0], ["user_id", 3], ["created_at", "2019-05-04 22:41:32.710447"], ["updated_at", "2019-05-04 22:41:32.710447"]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:16
+Completed 201 Created in 149ms (Views: 0.4ms | ActiveRecord: 19.4ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Create (1.0ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Shop Keeper"], ["created_at", "2019-05-04 22:42:03.604891"], ["updated_at", "2019-05-04 22:42:03.604891"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "luegilca@unal.edu.co"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "luegilca@unal.edu.co"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "luegilca@unal.edu.co"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "luegilca@unal.edu.co"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "luegilca@unal.edu.co"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "cadajerp@unal.edu.co"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "cadajerp@unal.edu.co"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "cadajerp@unal.edu.co"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "cadajerp@unal.edu.co"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = $1, "role_id" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_digest", "$2a$10$TygXZP2jUpn9t/2Z30/GbObA9UbAVDLO6tyBV6VRJzfqpkLbeGWjS"], ["role_id", 2], ["updated_at", "2019-05-04 22:49:11.007003"], ["id", 3]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/login" for ::1 at 2019-05-04 17:49:23 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/trum/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by AuthenticationController#login as */*
+  Parameters: {"user"=>{"email"=>"cadajerp@unal.edu.co", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"cadajerp@unal.edu.co", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_command.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:11
+Completed 200 OK in 237ms (Views: 0.6ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/login" for ::1 at 2019-05-04 17:51:13 -0500
+Processing by AuthenticationController#login as */*
+  Parameters: {"user"=>{"email"=>"cadajerp@unal.edu.co", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"cadajerp@unal.edu.co", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_command.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajerp@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:11
+Completed 200 OK in 224ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users" for ::1 at 2019-05-04 17:52:06 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for ::1 at 2019-05-04 17:52:10 -0500
+Processing by UsersController#index as */*
+Filter chain halted as :authenticate_shop_keeper! rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-05-04 17:52:13 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:52:37 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>1}, "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Load (0.6ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 11.7ms)
+
+
+  
+NoMethodError (undefined method `user' for #<Wallet:0x00007f61b8136958>
+Did you mean?  user_id):
+  
+app/controllers/users_controller.rb:41:in `consult_wallet'
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:53:33 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>1}, "user"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39
+Completed 200 OK in 48ms (Views: 0.7ms | ActiveRecord: 12.9ms)
+
+
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:53:42 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>2}, "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:53:49 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>3}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+Completed 404 Not Found in 5ms (ActiveRecord: 1.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Wallet with 'id'=3):
+  
+app/controllers/users_controller.rb:37:in `consult_wallet'
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:54:26 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>3}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+Completed 404 Not Found in 29ms (ActiveRecord: 10.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Wallet with 'id'=3):
+  
+app/controllers/users_controller.rb:37:in `consult_wallet'
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:54:46 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>3}, "user"=>{}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+Completed 204 No Content in 45ms (Views: 0.1ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:54:56 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>3}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+Completed 404 Not Found in 27ms (ActiveRecord: 12.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Wallet with 'id'=3):
+  
+app/controllers/users_controller.rb:37:in `consult_wallet'
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:57:13 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>3}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38
+Completed 204 No Content in 27ms (Views: 0.1ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 17:57:16 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>2}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Exists (4.6ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:01:19 -0500
+  
+ArgumentError ('mddTransactions' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:18:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:01:39 -0500
+  
+LoadError (Unable to autoload constant MddtransactionsController, expected /home/trum/Documents/Maestria/1semestre/ewallet-be/app/controllers/mddtransactions_controller.rb to define it):
+  
+activesupport (5.2.3) lib/active_support/dependencies.rb:511:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/dependencies.rb:195:in `const_missing'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.3) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.2.3) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:02:12 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"wallet"=>{"id"=>2}, "mddtransaction"=>{"wallet"=>{"id"=>2}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+Filter chain halted as :authenticate_client! rendered or redirected
+Completed 401 Unauthorized in 36ms (Views: 0.2ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/login" for ::1 at 2019-05-04 18:02:30 -0500
+Processing by AuthenticationController#login as */*
+  Parameters: {"user"=>{"email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_command.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:11
+Completed 200 OK in 226ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:02:42 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"wallet"=>{"id"=>2}, "mddtransaction"=>{"wallet"=>{"id"=>2}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.7ms)
+
+
+  
+LoadError (Unable to autoload constant Mddtransaction, expected /home/trum/Documents/Maestria/1semestre/ewallet-be/app/models/mddtransaction.rb to define it):
+  
+app/controllers/mddtransactions_controller.rb:21:in `transfer'
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:03:25 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"wallet"=>{"id"=>2}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mddtransactions_controller.rb:23
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/mddtransactions_controller.rb:23
+Completed 422 Unprocessable Entity in 57ms (Views: 0.2ms | ActiveRecord: 14.3ms)
+
+
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mTransactionType Create (2.6ms)[0m  [1m[32mINSERT INTO "transaction_types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Transfer"], ["created_at", "2019-05-04 23:04:37.502138"], ["updated_at", "2019-05-04 23:04:37.502138"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mTransactionType Create (0.4ms)[0m  [1m[32mINSERT INTO "transaction_types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Payment"], ["created_at", "2019-05-04 23:04:37.510244"], ["updated_at", "2019-05-04 23:04:37.510244"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[36mTransactionType Load (0.3ms)[0m  [1m[34mSELECT  "transaction_types".* FROM "transaction_types" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mWallet Load (1.2ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWallet Destroy (2.3ms)[0m  [1m[31mDELETE FROM "wallets" WHERE "wallets"."id" = $1[0m  [["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWallet Destroy (1.5ms)[0m  [1m[31mDELETE FROM "wallets" WHERE "wallets"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Destroy (1.5ms)[0m  [1m[31mDELETE FROM "roles" WHERE "roles"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Destroy (3.9ms)[0m  [1m[31mDELETE FROM "roles" WHERE "roles"."id" = $1[0m  [["id", 2]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (122.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ewallet_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (286.5ms)[0m  [1m[35mCREATE DATABASE "ewallet_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (19.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3210277058500076985)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRoles (20190504163215)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190504163215_create_roles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504163215"]]
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190504163706)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "lastname" character varying, "email" character varying, "password_digest" character varying, "role_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_642f17018b"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+)[0m
+  ↳ db/migrate/20190504163706_create_users.rb:3
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_role_id" ON "users"  ("role_id")[0m
+  ↳ db/migrate/20190504163706_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504163706"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateServices (20190504211515)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "services" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190504211515_create_services.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504211515"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTransactionTypes (20190504211517)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "transaction_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190504211517_create_transaction_types.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504211517"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateWallets (20190504211744)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "wallets" ("id" bigserial primary key, "activation_date" timestamp, "last_activity_date" timestamp, "maximum_value" float, "current_value" float, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_732f6628c4"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20190504211744_create_wallets.rb:3
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_wallets_on_user_id" ON "wallets"  ("user_id")[0m
+  ↳ db/migrate/20190504211744_create_wallets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504211744"]]
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTransactions (20190504212116)
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "mddtransactions" ("id" bigserial primary key, "target_id" integer, "wallet_id" bigint, "transaction_type_id" bigint, "amount" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5514ad7c97"
+FOREIGN KEY ("wallet_id")
+  REFERENCES "wallets" ("id")
+, CONSTRAINT "fk_rails_5abe3e8a14"
+FOREIGN KEY ("transaction_type_id")
+  REFERENCES "transaction_types" ("id")
+)[0m
+  ↳ db/migrate/20190504212116_create_transactions.rb:3
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE  INDEX  "index_mddtransactions_on_wallet_id" ON "mddtransactions"  ("wallet_id")[0m
+  ↳ db/migrate/20190504212116_create_transactions.rb:3
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_mddtransactions_on_transaction_type_id" ON "mddtransactions"  ("transaction_type_id")[0m
+  ↳ db/migrate/20190504212116_create_transactions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504212116"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreatePayments (20190504212201)
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "payments" ("id" bigserial primary key, "service_id" bigint, "mddtransaction_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1b524778d4"
+FOREIGN KEY ("service_id")
+  REFERENCES "services" ("id")
+, CONSTRAINT "fk_rails_af8164de79"
+FOREIGN KEY ("mddtransaction_id")
+  REFERENCES "mddtransactions" ("id")
+)[0m
+  ↳ db/migrate/20190504212201_create_payments.rb:3
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_payments_on_service_id" ON "payments"  ("service_id")[0m
+  ↳ db/migrate/20190504212201_create_payments.rb:3
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_payments_on_mddtransaction_id" ON "payments"  ("mddtransaction_id")[0m
+  ↳ db/migrate/20190504212201_create_payments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190504212201"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-04 23:11:29.526177"], ["updated_at", "2019-05-04 23:11:29.526177"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3210277058500076985)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mRole Create (0.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cliente"], ["created_at", "2019-05-04 23:11:35.339344"], ["updated_at", "2019-05-04 23:11:35.339344"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mRole Create (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tendero"], ["created_at", "2019-05-04 23:11:35.343604"], ["updated_at", "2019-05-04 23:11:35.343604"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "lastname", "email", "password_digest", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Luis"], ["lastname", "Gil"], ["email", "luegilca@unal.edu.co"], ["password_digest", "$2a$10$BO1ZdUM..RoUCOdkvY3svefQzNU6tab.C/2VLPYlpuoslE9bwhTji"], ["role_id", 1], ["created_at", "2019-05-04 23:11:35.440751"], ["updated_at", "2019-05-04 23:11:35.440751"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mWallet Create (0.8ms)[0m  [1m[32mINSERT INTO "wallets" ("activation_date", "last_activity_date", "maximum_value", "current_value", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["activation_date", "2019-05-04 00:00:00"], ["last_activity_date", "2019-05-04 00:00:00"], ["maximum_value", 10000000.0], ["current_value", 1000.0], ["user_id", 1], ["created_at", "2019-05-04 23:11:35.463440"], ["updated_at", "2019-05-04 23:11:35.463440"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luergica@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "lastname", "email", "password_digest", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Ernesto"], ["lastname", "Castellanos"], ["email", "luergica@gmail.com"], ["password_digest", "$2a$10$2f.HUfv1iKrqLgCJj1RMyOgBbGetoLT/QJH6uDbcEZEafKgtvon1C"], ["role_id", 1], ["created_at", "2019-05-04 23:11:35.536377"], ["updated_at", "2019-05-04 23:11:35.536377"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mWallet Create (0.6ms)[0m  [1m[32mINSERT INTO "wallets" ("activation_date", "last_activity_date", "maximum_value", "current_value", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["activation_date", "2019-05-04 00:00:00"], ["last_activity_date", "2019-05-04 00:00:00"], ["maximum_value", 10000000.0], ["current_value", 1000.0], ["user_id", 2], ["created_at", "2019-05-04 23:11:35.540802"], ["updated_at", "2019-05-04 23:11:35.540802"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cadajer@unal.edu.co"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "lastname", "email", "password_digest", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Camilo"], ["lastname", "Dajer"], ["email", "cadajer@unal.edu.co"], ["password_digest", "$2a$10$14CvkHuoF0kX2nQKAzC5kuOxnMsRjzaZNaQKL9pwDq1Stu/K1o38y"], ["role_id", 2], ["created_at", "2019-05-04 23:11:35.616414"], ["updated_at", "2019-05-04 23:11:35.616414"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mTransactionType Create (0.4ms)[0m  [1m[32mINSERT INTO "transaction_types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Transferencia"], ["created_at", "2019-05-04 23:11:35.631097"], ["updated_at", "2019-05-04 23:11:35.631097"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTransactionType Create (0.2ms)[0m  [1m[32mINSERT INTO "transaction_types" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pago"], ["created_at", "2019-05-04 23:11:35.634586"], ["updated_at", "2019-05-04 23:11:35.634586"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mService Create (0.4ms)[0m  [1m[32mINSERT INTO "services" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Acueducto Agua"], ["created_at", "2019-05-04 23:11:35.648603"], ["updated_at", "2019-05-04 23:11:35.648603"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mService Create (0.2ms)[0m  [1m[32mINSERT INTO "services" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Codensa Energia"], ["created_at", "2019-05-04 23:11:35.651544"], ["updated_at", "2019-05-04 23:11:35.651544"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[36mPayment Load (0.5ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mService Load (0.7ms)[0m  [1m[34mSELECT  "services".* FROM "services" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mWallet Load (1.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 18:14:07 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>2}, "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Exists (3.1ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 19.9ms)
+
+
+Started POST "/login" for ::1 at 2019-05-04 18:14:17 -0500
+Processing by AuthenticationController#login as */*
+  Parameters: {"user"=>{"email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]"}, "authentication"=>{"user"=>{"email"=>"luegilca@unal.edu.co", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_command.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luegilca@unal.edu.co"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:10
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:11
+Completed 200 OK in 216ms (Views: 0.5ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 18:14:41 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>2}, "user"=>{}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Exists (3.7ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38
+  [1m[36mWallet Load (1.5ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+Completed 200 OK in 41ms (Views: 0.1ms | ActiveRecord: 8.4ms)
+
+
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 18:14:52 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>2}, "user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+Filter chain halted as :authenticate_shop_keeper! rendered or redirected
+Completed 401 Unauthorized in 13ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/consult-wallet/" for ::1 at 2019-05-04 18:14:57 -0500
+Processing by UsersController#consult_wallet as */*
+  Parameters: {"wallet"=>{"id"=>2}, "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:22
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:23
+  [1m[36mWallet Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38
+  [1m[36mWallet Load (0.6ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:15:11 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>1000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mddtransactions_controller.rb:24
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/mddtransactions_controller.rb:24
+Completed 422 Unprocessable Entity in 26ms (Views: 0.2ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:16:01 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>1000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mddtransactions_controller.rb:24
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/mddtransactions_controller.rb:24
+Completed 422 Unprocessable Entity in 65ms (Views: 0.2ms | ActiveRecord: 11.5ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:16:11 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>1000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mddtransactions_controller.rb:24
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/mddtransactions_controller.rb:24
+Completed 422 Unprocessable Entity in 32ms (Views: 0.2ms | ActiveRecord: 10.1ms)
+
+
+  [1m[36mWallet Load (1.0ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:25:12 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>1000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ /home/trum/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 14.6ms)
+
+
+  
+  [1m[36mCACHE Wallet Load (0.0ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ /home/trum/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+NoMethodError (undefined method `current_value' for #<Wallet::ActiveRecord_Relation:0x00007f61bc12d818>
+Did you mean?  get_value):
+  
+app/models/user.rb:16:in `has_money'
+app/controllers/mddtransactions_controller.rb:22:in `transfer'
+  [1m[36mCACHE Wallet Load (0.0ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ /home/trum/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:26:15 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>1000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[36mWallet Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mWallet Load (1.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mTransactionType Load (1.7ms)[0m  [1m[34mSELECT  "transaction_types".* FROM "transaction_types" WHERE "transaction_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mMddtransaction Create (1.0ms)[0m  [1m[32mINSERT INTO "mddtransactions" ("target_id", "wallet_id", "transaction_type_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["target_id", 1], ["wallet_id", 1], ["transaction_type_id", 1], ["amount", 1000.0], ["created_at", "2019-05-04 23:26:15.342906"], ["updated_at", "2019-05-04 23:26:15.342906"]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/mddtransactions_controller.rb:32
+Completed 200 OK in 99ms (Views: 0.7ms | ActiveRecord: 26.3ms)
+
+
+  [1m[36mMddtransaction Load (1.1ms)[0m  [1m[34mSELECT  "mddtransactions".* FROM "mddtransactions" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:26:57 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>10000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[36mWallet Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16
+Completed 204 No Content in 31ms (ActiveRecord: 12.8ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:27:42 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>1000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[36mWallet Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15
+  [1m[36mWallet Load (0.5ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mTransactionType Load (0.4ms)[0m  [1m[34mSELECT  "transaction_types".* FROM "transaction_types" WHERE "transaction_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mMddtransaction Create (1.5ms)[0m  [1m[32mINSERT INTO "mddtransactions" ("target_id", "wallet_id", "transaction_type_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["target_id", 1], ["wallet_id", 1], ["transaction_type_id", 1], ["amount", 1000.0], ["created_at", "2019-05-04 23:27:42.917647"], ["updated_at", "2019-05-04 23:27:42.917647"]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/mddtransactions_controller.rb:32
+Completed 200 OK in 85ms (Views: 0.2ms | ActiveRecord: 33.0ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:27:47 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>10000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[36mWallet Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15
+  [1m[36mWallet Load (1.1ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:16
+Completed 401 Unauthorized in 19ms (Views: 2.4ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:34:08 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>10000, "wallet"=>1}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (2.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[36mWallet Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:5
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:6
+Completed 401 Unauthorized in 59ms (Views: 0.2ms | ActiveRecord: 19.4ms)
+
+
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:34:19 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>1000, "wallet"=>2}, "mddtransaction"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[36mWallet Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:5
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:6
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mTransactionType Load (0.2ms)[0m  [1m[34mSELECT  "transaction_types".* FROM "transaction_types" WHERE "transaction_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[36mMddtransaction Create (4.3ms)[0m  [1m[32mINSERT INTO "mddtransactions" ("target_id", "wallet_id", "transaction_type_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["target_id", 2], ["wallet_id", 1], ["transaction_type_id", 1], ["amount", 1000.0], ["created_at", "2019-05-04 23:34:19.607512"], ["updated_at", "2019-05-04 23:34:19.607512"]]
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/mddtransactions_controller.rb:32
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/mddtransactions_controller.rb:33
+  [1m[36mWallet Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:15
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:16
+  [1m[36mWallet Update (3.6ms)[0m  [1m[33mUPDATE "wallets" SET "current_value" = $1, "updated_at" = $2 WHERE "wallets"."id" = $3[0m  [["current_value", 0.0], ["updated_at", "2019-05-04 23:34:19.624117"], ["id", 1]]
+  ↳ app/models/wallet.rb:18
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:29
+  [1m[36mWallet Update (0.3ms)[0m  [1m[33mUPDATE "wallets" SET "current_value" = $1, "updated_at" = $2 WHERE "wallets"."id" = $3[0m  [["current_value", 2000.0], ["updated_at", "2019-05-04 23:34:19.634160"], ["id", 2]]
+  ↳ app/models/wallet.rb:32
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/mddtransactions_controller.rb:33
+Completed 200 OK in 72ms (Views: 0.2ms | ActiveRecord: 20.2ms)
+
+
+  [1m[36mWallet Load (1.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/user/transfer/" for ::1 at 2019-05-04 18:34:30 -0500
+Processing by MddtransactionsController#transfer as */*
+  Parameters: {"transfer"=>{"value"=>1000, "wallet"=>2}, "mddtransaction"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:8
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/secured.rb:9
+  [1m[36mWallet Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wallets" WHERE "wallets"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:5
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."user_id" = $1 ORDER BY "wallets"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/wallet.rb:6
+Completed 401 Unauthorized in 17ms (Views: 0.2ms | ActiveRecord: 4.9ms)
+
+
+  [1m[36mMddtransaction Load (1.2ms)[0m  [1m[34mSELECT  "mddtransactions".* FROM "mddtransactions" LIMIT $1[0m  [["LIMIT", 11]]

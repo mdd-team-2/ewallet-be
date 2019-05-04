@@ -13,11 +13,38 @@ class UsersController < ApplicationController
   def signup
     @user = User.new(user_params)
     @user.role_id = 1
+    ActiveRecord::Base.transaction do
+      if @user.save
+        @wallet = Wallet.new
+        @wallet.activation_date = DateTime.now.to_date
+        @wallet.last_activity_date = DateTime.now.to_date
+        @wallet.maximum_value = 10000000
+        @wallet.current_value = 1000
+        @wallet.user_id = @user.id
+        if @wallet.save
+          render json: @user.slice(:name,:lastname, :email), status: :created, location: @user
+        else
+          render json: @wallet.errors, status: :unprocessable_entity
+        end
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
+    end
+  end
 
-    if @user.save
-      render json: @user.slice(:name,:lastname, :email), status: :created, location: @user
+  # POST /consult-wallet
+  def consult_wallet
+    @wallet = Wallet.where(id: params[:wallet][:id])
+    if !@wallet.empty?
+      @wallet = @wallet.first
+      user = User.find(@wallet.user_id)
+      render json: {
+        data: {
+          user: user.name + " " + user.lastname 
+        }
+      }, status: :ok
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render status: 204
     end
   end
 
