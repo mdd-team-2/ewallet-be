@@ -19,10 +19,6 @@ module Secured
   def authenticate_shop_keeper!
     begin
       obj = auth_token
-      puts "-----------aca decodifico--------"
-      puts obj
-      puts obj["id"]
-      puts obj.id
       @current_user = User.find_by_id(obj["id"])
       unless @current_user and @current_user.role.id == 2
         raise JWT::VerificationError
