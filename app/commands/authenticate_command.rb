@@ -10,7 +10,6 @@ class AuthenticateCommand
   def call
     if find
       JsonWebToken.encode(playload: {id: find.id,type: find.role.id}) 
-
     end
   end
 

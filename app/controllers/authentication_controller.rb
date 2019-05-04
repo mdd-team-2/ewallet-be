@@ -22,29 +22,4 @@ class AuthenticationController < ApplicationController
     end 
   end
 
-  def authenticate_user(authentication:)
-    puts "---------esta es la autenticacion del usuario--------"
-    puts authentication
-
-    render json: {
-              data: {
-                token: 'estoesuntokenrevalidodeusuario'
-              }
-            }, status: 200
-    
-  end
-
-  def authenticate_admin(authentication:)
-
-    puts "---------esta es la autenticacion del tendero--------"
-    puts authentication
-
-    render json: {
-      data: {
-        token: 'estoesuntokenrevalidodetendero'
-      }
-    }, status: 200
-    
-  end
-
 end

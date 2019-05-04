@@ -1,11 +1,24 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  before_action :authenticate_shop_keeper!, except: [:signup]
 
   # GET /users
   def index
     @users = User.all
 
     render json: @users
+  end
+
+  # POST /signup
+  def signup
+    @user = User.new(user_params)
+    @user.role_id = 1
+
+    if @user.save
+      render json: @user.slice(:name,:lastname, :email), status: :created, location: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
   # GET /users/1
@@ -46,6 +59,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :lastname, :email, :password_digest, :role_id)
+      params.require(:user).permit(:name, :lastname, :email, :password, :password_confirmation)
     end
 end

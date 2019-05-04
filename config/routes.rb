@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :roles
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  #Login
+  #login
   post 'login', to: "authentication#login"
+  #SignUp
+  post 'signup', to: "users#signup"
 
 end

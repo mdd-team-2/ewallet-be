@@ -2,15 +2,27 @@ module Secured
   extend ActiveSupport::Concern
   attr_reader :current_user,:current_admin,:token
 
-  def authenticate!
+  def authenticate_client!
     begin
       obj = auth_token
+      @current_user = User.find_by_id(obj.id)
+      unless @current_user and @current_user.role.id == 1
+        raise JWT::VerificationError
+      end
+      generate_token @current_user
 
-      # @current_admin = Admin.by_id(obj[:id])
-      # unless @current_admin
-      #   raise JWT::VerificationError
-      # end
-      @current_user = nil
+    rescue JWT::VerificationError, JWT::DecodeError
+      response_message
+    end
+  end
+
+  def authenticate_shop_keeper!
+    begin
+      obj = auth_token
+      @current_user = User.find_by_id(obj.id)
+      unless @current_user and @current_user.role.id == 2
+        raise JWT::VerificationError
+      end
       generate_token @current_user
 
     rescue JWT::VerificationError, JWT::DecodeError
