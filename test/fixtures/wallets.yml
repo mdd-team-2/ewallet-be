@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  activation_date: 2019-05-04 16:17:44
+  last_activity_date: 2019-05-04 16:17:44
+  maximum_value: 1.5
+  current_value: 1.5
+  User: 
+
+two:
+  activation_date: 2019-05-04 16:17:44
+  last_activity_date: 2019-05-04 16:17:44
+  maximum_value: 1.5
+  current_value: 1.5
+  User: 
