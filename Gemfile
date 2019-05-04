@@ -41,6 +41,7 @@ group :development do
 end
 
 #For Authentication
+gem 'rack-cors'
 gem 'jwt'
 gem 'simple_command'
 gem 'bcrypt'
