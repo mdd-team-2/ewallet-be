@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post 'consult-wallet', to: "users#consult_wallet"
   #transfer
   post 'user/transfer', to: "transfers#transfer"
+  #transfer_admin
+  post 'admin/transfer', to: "transfers#transferadmin"
   #payment
   post 'user/payment', to: "payments#payment"
   #current-money

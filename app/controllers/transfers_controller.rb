@@ -77,7 +77,7 @@ class TransfersController < ApplicationController
   end
 
   # POST /transfer
-  def transfer_admin
+  def transferadmin
     puts "-----------Transferencia desde admin------------"
     
     if @current_user.role_id == 1 
