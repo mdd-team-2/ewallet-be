@@ -28,7 +28,7 @@ class WalletsController < ApplicationController
         error: {
           user: "not exist"
         }
-      }, status: :ok
+      }, status: 204
     end
   end
 

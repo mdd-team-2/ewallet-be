@@ -15,6 +15,7 @@ User.create(name: "Ernesto", lastname: "Castellanos", email: "luergica@gmail.com
 Wallet.create(activation_date: DateTime.now.to_date, last_activity_date: DateTime.now.to_date, maximum_value: 10000000, current_value: 1000, user_id: 2)
 
 User.create(name: "Camilo", lastname: "Dajer", email: "cadajer@unal.edu.co", password: "12345678", password_confirmation: "12345678", role_id: 2)
+Wallet.create(activation_date: DateTime.now.to_date, last_activity_date: DateTime.now.to_date, maximum_value: 100000000, current_value: 5000000, user_id: 3)
 
 
 TransactionType.create(name: "Transferencia")

@@ -19,39 +19,60 @@ class TransfersController < ApplicationController
   def transfer
     puts "-----------Transferencia------------"
     
-    if Wallet.has_money(@current_user.id, params[:transfer][:value])
-      puts "Tiene el dinero suficiente"
-      @transaction = Mddtransaction.new()
-      puts @current_user.id
-      @transaction.target_id = params[:transfer][:wallet]
-      @transaction.wallet_id = @current_user.id
-      @transaction.transaction_type_id = 1
-      @transaction.amount = params[:transfer][:value]
+    if @current_user.role_id == 1 
+      if Wallet.has_money(@current_user.id, params[:transfer][:value]) 
+        @wallet = Wallet.where(user_id: @current_user.id)
+        if @wallet.id != params[:transfer][:wallet]
+          puts "Tiene el dinero suficiente"
+          @transaction = Mddtransaction.new()
+          puts @current_user.id
+          @transaction.target_id = params[:transfer][:wallet]
+          @transaction.wallet_id = @wallet.id
+          @transaction.transaction_type_id = 1
+          @transaction.amount = params[:transfer][:value]
 
 
-      if @transaction.save
-        ActiveRecord::Base.transaction do
-          Wallet.get_money(@current_user.id, params[:transfer][:value])
-          Wallet.give_money(params[:transfer][:wallet], params[:transfer][:value])
+          if @transaction.save
+            ActiveRecord::Base.transaction do
+              Wallet.get_money(@current_user.id, params[:transfer][:value])
+              Wallet.give_money(params[:transfer][:wallet], params[:transfer][:value])
+            end
+            render json: {
+              data: {
+                transaction: @transaction.id,
+                date: @transaction.created_at,
+                amount: @transaction.amount
+              }
+            }, status: :ok
+          else
+            render json: {
+              data: {
+                errors: {
+                  message: "No es posible realizarte transferencias a ti mismo"
+                }
+              }
+            }, status: 204
+          end
+        else
+          render json: @transaction.errors, status: :unprocessable_entity
         end
+      else
         render json: {
           data: {
-            transaction: @transaction.id,
-            date: @transaction.created_at,
-            amount: @transaction.amount
+            errors: {
+              message: "Saldo insuficiente"
+            }
           }
-        }, status: :ok
-      else
-        render json: @transaction.errors, status: :unprocessable_entity
+        }, status: 204
       end
     else
       render json: {
         data: {
           errors: {
-            message: "Saldo insuficiente"
+            message: "No es posible realizar transferencias a tenderos"
           }
         }
-      }, status: :unauthorized
+      }, status: 204
     end
   end
 
