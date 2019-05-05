@@ -25,6 +25,16 @@ class Wallet < ApplicationRecord
     end
   end
 
+  def self.current_money(id)
+    @wallet = Wallet.where(user_id: id)
+    if !@wallet.empty?
+      @wallet = @wallet.first
+      return @wallet.current_value
+    else
+      return false
+    end
+  end
+
   def self.give_money(id, amount)
     @wallet = Wallet.find(id)
     if @wallet

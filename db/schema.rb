@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_212201) do
+ActiveRecord::Schema.define(version: 2019_05_05_034202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_05_04_212201) do
     t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "ingress"
     t.index ["transaction_type_id"], name: "index_mddtransactions_on_transaction_type_id"
     t.index ["wallet_id"], name: "index_mddtransactions_on_wallet_id"
   end

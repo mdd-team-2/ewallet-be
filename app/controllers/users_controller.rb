@@ -34,17 +34,35 @@ class UsersController < ApplicationController
 
   # POST /consult-wallet
   def consult_wallet
-    @wallet = Wallet.where(id: params[:wallet][:id])
-    if !@wallet.empty?
-      @wallet = @wallet.first
-      user = User.find(@wallet.user_id)
+    user = User.by_email(params[:wallet][:email])
+    if user
+      @wallet = Wallet.where(user_id: user.id)
+      if !@wallet.empty?
+        @wallet = @wallet.first
+        user = User.find(@wallet.user_id)
+        render json: {
+          data: {
+            user: user.name + " " + user.lastname,
+            wallet: @wallet.id 
+          }
+        }, status: :ok
+      else
+        render json: {
+          data: {
+            errors: {
+              message: "No hay una billetera asociada a ese usuario"
+            }
+          }
+        }, status: :unauthorized
+      end
+    else
       render json: {
         data: {
-          user: user.name + " " + user.lastname 
+          errors: {
+            message: "No se encontro ese correo asociado a un usuario"
+          }
         }
-      }, status: :ok
-    else
-      render status: 204
+      }, status: :unauthorized
     end
   end
 
