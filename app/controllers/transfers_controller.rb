@@ -19,9 +19,9 @@ class TransfersController < ApplicationController
   def transfer
     puts "-----------Transferencia------------"
     
-    if @current_user.role_id == 1 
+    if User.find(Wallet.find(params[:transfer][:wallet]).user_id).role_id == 1 
       if Wallet.has_money(@current_user.id, params[:transfer][:value]) 
-        @wallet = Wallet.where(user_id: @current_user.id)
+        @wallet = Wallet.where(user_id: @current_user.id).first
         if @wallet.id != params[:transfer][:wallet]
           puts "Tiene el dinero suficiente"
           @transaction = Mddtransaction.new()
@@ -80,9 +80,11 @@ class TransfersController < ApplicationController
   def transferadmin
     puts "-----------Transferencia desde admin------------"
     
-    if @current_user.role_id == 1 
+    if User.find(Wallet.find(params[:transfer][:wallet]).user_id).role_id == 1
+      puts "-----------1------------"
       if Wallet.has_money(@current_user.id, params[:transfer][:value]) 
-        @wallet = Wallet.where(user_id: @current_user.id)
+        puts "-----------2------------"
+        @wallet = Wallet.where(user_id: @current_user.id).first
         if @wallet.id != params[:transfer][:wallet]
           puts "Tiene el dinero suficiente"
           @transaction = Mddtransaction.new()
