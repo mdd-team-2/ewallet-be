@@ -10,8 +10,9 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
-# require "sprockets/railtie"
+require "sprockets/railtie"
 require "rails/test_unit/railtie"
+require 'rack/cors'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -36,7 +37,7 @@ module Ewallet
         origins "*"
         resource "*",
         :headers => :any,
-        :expose => ['token'],
+        :expose => ['token'], 
         :methods => [:get,:post,:options,:delete,:put,:patch,:head]
       end
     end
