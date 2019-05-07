@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post 'signup', to: "users#signup"
   #consult-wallet
   post 'consult-wallet', to: "users#consult_wallet"
+  #consult-wallet
+  post 'admin/consult-wallet', to: "users#consult_wallet_admin"
   #transfer
   post 'user/transfer', to: "transfers#transfer"
   #transfer_admin

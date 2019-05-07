@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :authenticate_shop_keeper!, except: [:signup,:consult_wallet]
+  before_action :authenticate_shop_keeper!, except: [:signup,:consult_wallet_admin]
   before_action :authenticate_client!, only: [:consult_wallet]
 
   # GET /users
@@ -35,6 +35,40 @@ class UsersController < ApplicationController
 
   # POST /consult-wallet
   def consult_wallet
+    user = User.by_email(params[:wallet][:email])
+    if user
+      @wallet = Wallet.where(user_id: user.id)
+      if !@wallet.empty?
+        @wallet = @wallet.first
+        user = User.find(@wallet.user_id)
+        render json: {
+          data: {
+            user: user.name + " " + user.lastname,
+            wallet: @wallet.id 
+          }
+        }, status: :ok
+      else
+        render json: {
+          data: {
+            errors: {
+              message: "No hay una billetera asociada a ese usuario"
+            }
+          }
+        }, status: :unauthorized
+      end
+    else
+      render json: {
+        data: {
+          errors: {
+            message: "No se encontro ese correo asociado a un usuario"
+          }
+        }
+      }, status: :unauthorized
+    end
+  end
+
+  # POST /consult-wallet
+  def consult_wallet_admin
     user = User.by_email(params[:wallet][:email])
     if user
       @wallet = Wallet.where(user_id: user.id)
