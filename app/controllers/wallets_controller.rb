@@ -1,6 +1,6 @@
 class WalletsController < ApplicationController
   before_action :set_wallet, only: [:show, :update, :destroy]
-  before_action :authenticate_client!, only: [:currentmoney]
+  before_action :authenticate_client!, :authenticate_shop_keeper!, only: [:currentmoney]
 
   # GET /wallets
   def index
