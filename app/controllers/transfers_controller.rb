@@ -1,6 +1,6 @@
 class TransfersController < ApplicationController
   before_action :set_transaction, only: [:show, :update, :destroy]
-  before_action :authenticate_shop_keeper!, except: [:transfer]
+  before_action :authenticate_shop_keeper!, only: [:transferadmin]
   before_action :authenticate_client!, only: [:transfer]
 
   # GET /transactions
