@@ -17,7 +17,6 @@ class TransfersController < ApplicationController
 
   # POST /transfer
   def transfer
-    puts "-----------Transferencia------------"
     
     if User.find(Wallet.find(params[:transfer][:wallet]).user_id).role_id == 1 
       if Wallet.has_money(@current_user.id, params[:transfer][:value]) 
@@ -45,16 +44,16 @@ class TransfersController < ApplicationController
               }
             }, status: :ok
           else
-            render json: {
-              data: {
-                errors: {
-                  message: "No es posible realizarte transferencias a ti mismo"
-                }
-              }
-            }, status: 204
+            render json: @transaction.errors, status: :unprocessable_entity
           end
         else
-          render json: @transaction.errors, status: :unprocessable_entity
+          render json: {
+            data: {
+              errors: {
+                message: "No es posible realizarte transferencias a ti mismo"
+              }
+            }
+          }, status: 500
         end
       else
         render json: {
@@ -63,7 +62,7 @@ class TransfersController < ApplicationController
               message: "Saldo insuficiente"
             }
           }
-        }, status: 204
+        }, status: 500
       end
     else
       render json: {
@@ -72,7 +71,7 @@ class TransfersController < ApplicationController
             message: "No es posible realizar transferencias a tenderos"
           }
         }
-      }, status: 204
+      }, status: 500
     end
   end
 
@@ -108,16 +107,16 @@ class TransfersController < ApplicationController
               }
             }, status: :ok
           else
-            render json: {
-              data: {
-                errors: {
-                  message: "No es posible realizarte transferencias a ti mismo"
-                }
-              }
-            }, status: 204
+            render json: @transaction.errors, status: :unprocessable_entity
           end
         else
-          render json: @transaction.errors, status: :unprocessable_entity
+          render json: {
+            data: {
+              errors: {
+                message: "No es posible realizarte transferencias a ti mismo"
+              }
+            }
+          }, status: 500
         end
       else
         render json: {
@@ -126,7 +125,7 @@ class TransfersController < ApplicationController
               message: "Saldo insuficiente"
             }
           }
-        }, status: 204
+        }, status: 500
       end
     else
       render json: {
@@ -135,7 +134,7 @@ class TransfersController < ApplicationController
             message: "No es posible realizar transferencias a tenderos"
           }
         }
-      }, status: 204
+      }, status: 500
     end
   end
 

@@ -34,7 +34,7 @@ class WalletsController < ApplicationController
   end
 
   # GET /user/current-money
-  def currentmoneyadmin
+  def currentmoney_admin
     puts @current_user
     if !Wallet.where(user_id: @current_user.id).empty?
       render json: {

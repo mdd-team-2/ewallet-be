@@ -18,10 +18,12 @@ Rails.application.routes.draw do
   #current-money
   get 'user/current-money', to: "wallets#currentmoney"
   #current-money
-  get 'shopkeeper/current-money', to: "wallets#currentmoneyadmin"
+  get 'shopkeeper/current-money', to: "wallets#currentmoney_admin"
   #service
   get 'service/list', to: "service#index"
   #report
   get 'user/report', to: "reports#report"
+  #report
+  get 'shopkeeper/report', to: "reports#report_admin"
 
 end
