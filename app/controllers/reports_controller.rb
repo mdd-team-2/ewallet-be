@@ -8,8 +8,8 @@ class ReportsController < ApplicationController
     @wallet = Wallet.where(user_id: @current_user.id)
     if !@wallet.empty?
       @wallet = @wallet.first
-      @transactions = Mddtransaction.egress(@wallet.id)
-      @transactions += Mddtransaction.ingress(@wallet.id)
+      @transactions = Mddtransaction.egress(wallet: @wallet.id)
+      @transactions += Mddtransaction.ingress(wallet: @wallet.id)
       
       #Order desc
       @transactions = @transactions.sort_by{|e| e[:created_at]}.reverse!
@@ -45,8 +45,8 @@ class ReportsController < ApplicationController
     @wallet = Wallet.where(user_id: @current_user.id)
     if !@wallet.empty?
       @wallet = @wallet.first
-      @transactions = Mddtransaction.egress(@wallet.id)
-      @transactions += Mddtransaction.ingress(@wallet.id)
+      @transactions = Mddtransaction.egress(wallet: @wallet.id)
+      @transactions += Mddtransaction.ingress(wallet: @wallet.id)
       
       #Order desc
       @transactions = @transactions.sort_by{|e| e[:created_at]}.reverse!
