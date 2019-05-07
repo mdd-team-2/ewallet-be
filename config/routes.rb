@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post 'user/payment', to: "payments#payment"
   #current-money
   get 'user/current-money', to: "wallets#currentmoney"
+  #current-money
+  get 'shopkeeper/current-money', to: "wallets#currentmoneyadmin"
   #service
   get 'service/list', to: "service#index"
   #report

@@ -1,6 +1,7 @@
 class WalletsController < ApplicationController
   before_action :set_wallet, only: [:show, :update, :destroy]
-  before_action :authenticate_client!, :authenticate_shop_keeper!, only: [:currentmoney]
+  before_action :authenticate_client!, only: [:currentmoney]
+  before_action :authenticate_shop_keeper!, only: [:currentmoneyadmin]
 
   # GET /wallets
   def index
@@ -16,6 +17,24 @@ class WalletsController < ApplicationController
 
   # GET /user/current-money
   def currentmoney
+    puts @current_user
+    if !Wallet.where(user_id: @current_user.id).empty?
+      render json: {
+        data: {
+          current: Wallet.current_money(@current_user.id)
+        }
+      }, status: :ok
+    else
+      render json: {
+        error: {
+          user: "not exist"
+        }
+      }, status: 204
+    end
+  end
+
+  # GET /user/current-money
+  def currentmoneyadmin
     puts @current_user
     if !Wallet.where(user_id: @current_user.id).empty?
       render json: {
