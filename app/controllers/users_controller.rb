@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :authenticate_shop_keeper!, except: [:signup,:consult_wallet_admin]
+  before_action :authenticate_shop_keeper!, only: [:consult_wallet_admin]
   before_action :authenticate_client!, only: [:consult_wallet]
 
   # GET /users
