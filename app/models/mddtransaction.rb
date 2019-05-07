@@ -11,7 +11,7 @@ class Mddtransaction < ApplicationRecord
   end
 
   def self.ingress(wallet:)
-    transactions += Mddtransaction.where(transaction_type_id: 1).where(target_id: wallet).each do |p|
+    transactions = Mddtransaction.where(transaction_type_id: 1).where(target_id: wallet).each do |p|
       p['ingress'] = true
     end
 
