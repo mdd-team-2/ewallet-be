@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         @wallet.current_value = 1000
         @wallet.user_id = @user.id
         if @wallet.save
-          render json: @user.slice(:name,:lastname, :email), status: :created, location: @user
+          render json: @user.slice(:name,:lastname, :email), status: :created
         else
           render json: @wallet.errors, status: :unprocessable_entity
         end
