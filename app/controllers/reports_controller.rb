@@ -8,7 +8,7 @@ class ReportsController < ApplicationController
     @wallet = Wallet.where(user_id: @current_user.id)
     if !@wallet.empty?
       @wallet = @wallet.first
-      @transactions = Mddtransaction.where(wallet_id: @wallet.id).joins("LEFT JOIN payments ON payments.mddtransaction_id = mddtransactions.id").joins("LEFT JOIN services ON payments.service_id = services.id").joins("LEFT JOIN users ON mddtransactions.target_id = users.id").select("users.*,payments.*,services.*, mddtransactions.*").each do |p|
+      @transactions = Mddtransaction.where(wallet_id: @wallet.id).joins("LEFT JOIN payments ON payments.mddtransaction_id = mddtransactions.id").joins("LEFT JOIN services ON payments.service_id = services.id").select("payments.*,services.*, mddtransactions.*").each do |p|
         p['ingress'] = false
       end
 
